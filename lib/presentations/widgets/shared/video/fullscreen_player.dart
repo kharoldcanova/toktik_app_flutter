@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:toktik_app_flutter/presentations/widgets/shared/video/video_background.dart';
 import 'package:video_player/video_player.dart';
 
 class FullScreenPlayer extends StatefulWidget {
@@ -45,8 +46,9 @@ class _FullScreenPlayerState extends State<FullScreenPlayer> {
         }
         return GestureDetector(
           onTap: () {
-            if (controller.value.isPlaying){
+            if (controller.value.isPlaying) {
               controller.pause();
+              return;
             }
             controller.play();
           },
@@ -56,6 +58,9 @@ class _FullScreenPlayerState extends State<FullScreenPlayer> {
               children: [
                 VideoPlayer((controller)),
                 // Gradiente
+                VideoBackground(
+                  stops: const[0.8, 1.0],
+                ),
                 //Texto
                 Positioned(
                     bottom: 50,
